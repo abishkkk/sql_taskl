@@ -1,136 +1,131 @@
-
-
-
-
-CREATE TABLE Orders (
-
-  OrderID INT,
-
-  CustomerID INT,
-
-  OrderDate DATE,
-
-  Product VARCHAR(50),
-
-  Product_id INT,
-
-  ArrivalDate DATE,
-
-  DispatchDate DATE,
-
-  SenderLocation VARCHAR(50),
-
-  ReceiverLocation VARCHAR(50)
-
+CREATE TABLE Orderstable (
+    OrderID INT PRIMARY KEY,
+    Customer_ID INT,
+    Order_date DATE,
+    Product VARCHAR(50),
+    Product_id INT,
+    Arrival_date DATE,
+    Dispatch_date DATE,
+    Sender_location VARCHAR(100),
+    Receiver_location VARCHAR(100),
+    CONSTRAINT fk_customer
+        FOREIGN KEY (Customer_ID)
+        REFERENCES Customer(Customer_ID)
 );
+
 
 INSERT INTO Orders (OrderID, CustomerID, OrderDate, Product, Product_id, ArrivalDate, DispatchDate, SenderLocation, ReceiverLocation)
 
 
 
-  (1, 1, '2023-05-01', 'Product13', 13, '2023-06-02', '2023-06-16', 'Sender Location18', 'Receiver Location27'),
+  (1, 1, '2023-05-21', 'Product13', 13, '2023-06-02', '2023-06-16', 'Sender Location18', 'Receiver Location27'),
 
-  (2, 2, '2023-04-01', 'Product5', 5, '2023-06-09', '2023-06-21', 'Sender Location5', 'Receiver Location18'),
+  (2, 3, '2023-04-23', 'Product5', 5, '2023-06-09', '2023-06-21', 'Sender Location5', 'Receiver Location18'),
 
-  (3, 3, '2023-03-01', 'Product4', 4, '2023-06-14', '2023-06-24', 'Sender Location24', 'Receiver Location4'),
+  (3, 5, '2023-03-31', 'Product4', 4, '2023-06-14', '2023-06-24', 'Sender Location24', 'Receiver Location4'),
 
-  (4, 4, '2023-04-01', 'Product14', 14, '2023-06-14', '2023-06-25', 'Sender Location4', 'Receiver Location2'),
+  (4, 7, '2023-04-06', 'Product14', 14, '2023-06-14', '2023-06-25', 'Sender Location4', 'Receiver Location2'),
 
-  (5, 5, '2023-02-01', 'Product19', 19, '2023-06-12', '2023-06-23', 'Sender Location10', 'Receiver Location21'),
+  (5, 9, '2023-02-09', 'Product19', 19, '2023-06-12', '2023-06-23', 'Sender Location10', 'Receiver Location21'),
 
-  (6, 6, '2023-03-01', 'Product23', 23, '2023-06-10', '2023-06-24', 'Sender Location22', 'Receiver Location13'),
+  (6, 2, '2023-03-05', 'Product23', 23, '2023-06-10', '2023-06-24', 'Sender Location22', 'Receiver Location13'),
 
-  (7, 7, '2023-01-01', 'Product1', 1, '2023-06-14', '2023-06-26', 'Sender Location11', 'Receiver Location8'),
+  (7, 4, '2023-01-29', 'Product1', 1, '2023-06-14', '2023-06-26', 'Sender Location11', 'Receiver Location8'),
 
-  (8, 8, '2023-02-01', 'Product17', 17, '2023-06-11', '2023-06-25', 'Sender Location17', 'Receiver Location15'),
+  (8, 6, '2023-02-30', 'Product17', 17, '2023-06-11', '2023-06-25', 'Sender Location17', 'Receiver Location15'),
 
-  (9, 9, '2023-05-01', 'Product9', 9, '2023-06-09', '2023-06-22', 'Sender Location30', 'Receiver Location11'),
+  (9, 8, '2023-05-01', 'Product9', 9, '2023-06-09', '2023-06-22', 'Sender Location30', 'Receiver Location11'),
 
-  (10, 10, '2023-03-01', 'Product10', 10, '2023-06-13', '2023-06-26', 'Sender Location12', 'Receiver Location5'),
+  (10, 10, '2023-03-16', 'Product10', 10, '2023-06-13', '2023-06-26', 'Sender Location12', 'Receiver Location5'),
 
-  (11, 11, '2023-04-01', 'Product12', 12, '2023-06-15', '2023-06-26', 'Sender Location16', 'Receiver Location28'),
+  (11,4 , '2023-04-14', 'Product12', 12, '2023-06-15', '2023-06-26', 'Sender Location16', 'Receiver Location28'),
 
-  (12, 12, '2023-05-01', 'Product8', 8, '2023-06-12', '2023-06-24', 'Sender Location14', 'Receiver Location22'),
+  (12, 3, '2023-05-20', 'Product8', 8, '2023-06-12', '2023-06-24', 'Sender Location14', 'Receiver Location22'),
 
-  (13, 13, '2023-01-01', 'Product3', 3, '2023-06-13', '2023-06-26', 'Sender Location3', 'Receiver Location29'),
+  (13, 2, '2023-01-11', 'Product3', 3, '2023-06-13', '2023-06-26', 'Sender Location3', 'Receiver Location29'),
 
 
 
-  (14, 14, '2023-02-01', 'Product2', 2, '2023-06-11', '2023-06-24', 'Sender Location9', 'Receiver Location1'),
+  (14, 1, '2023-02-03', 'Product2', 2, '2023-06-11', '2023-06-24', 'Sender Location9', 'Receiver Location1'),
 
-  (15, 15, '2023-03-01', 'Product15', 15, '2023-06-09', '2023-06-22', 'Sender Location19', 'Receiver Location7'),
+  (15, 6, '2023-03-25', 'Product15', 15, '2023-06-09', '2023-06-22', 'Sender Location19', 'Receiver Location7'),
 
-  (16, 16, '2023-04-01', 'Product6', 6, '2023-06-15', '2023-06-26', 'Sender Location7', 'Receiver Location26'),
+  (16, 5, '2023-04-11', 'Product6', 6, '2023-06-15', '2023-06-26', 'Sender Location7', 'Receiver Location26'),
 
-  (17, 17, '2023-05-01', 'Product16', 16, '2023-06-10', '2023-06-23', 'Sender Location26', 'Receiver Location25'),
+  (17, 9, '2023-05-18', 'Product16', 16, '2023-06-10', '2023-06-23', 'Sender Location26', 'Receiver Location25'),
 
-  (18, 18, '2023-01-01', 'Product18', 18, '2023-06-12', '2023-06-25', 'Sender Location13', 'Receiver Location12'),
+  (18, 10, '2023-01-27', 'Product18', 18, '2023-06-12', '2023-06-25', 'Sender Location13', 'Receiver Location12'),
 
-  (19, 19, '2023-02-01', 'Product11', 11, '2023-06-11', '2023-06-24', 'Sender Location20', 'Receiver Location10'),
+  (19, 7, '2023-02-14', 'Product11', 11, '2023-06-11', '2023-06-24', 'Sender Location20', 'Receiver Location10'),
 
-  (20, 20, '2023-03-01', 'Product7', 7, '2023-06-13', '2023-06-26', 'Sender Location23', 'Receiver Location9'),
+  (20, 8, '2023-03-30', 'Product7', 7, '2023-06-13', '2023-06-26', 'Sender Location23', 'Receiver Location9'),
 
-  (21, 21, '2023-04-01', 'Product20', 20, '2023-06-15', '2023-06-28', 'Sender Location6', 'Receiver Location19'),
+  (21, 8, '2023-04-20', 'Product20', 20, '2023-06-15', '2023-06-28', 'Sender Location6', 'Receiver Location19'),
 
-  (22, 22, '2023-05-01', 'Product22', 22, '2023-06-13', '2023-06-27', 'Sender Location21', 'Receiver Location24'),
+  (22, 2, '2023-05-12', 'Product22', 22, '2023-06-13', '2023-06-27', 'Sender Location21', 'Receiver Location24'),
 
-  (23, 23, '2023-01-01', 'Product21', 21, '2023-06-14', '2023-06-28', 'Sender Location2', 'Receiver Location6'),
+  (23, 4, '2023-01-23', 'Product21', 21, '2023-06-14', '2023-06-28', 'Sender Location2', 'Receiver Location6'),
 
-  (24, 24, '2023-02-01', 'Product24', 24, '2023-06-12', '2023-06-25', 'Sender Location8', 'Receiver Location14'),
+  (24, 5, '2023-02-18', 'Product24', 24, '2023-06-12', '2023-06-25', 'Sender Location8', 'Receiver Location14'),
 
-  (25, 25, '2023-03-01', 'Product25', 25, '2023-06-10', '2023-06-23', 'Sender Location1', 'Receiver Location3'),
+  (25, 1, '2023-03-31', 'Product25', 25, '2023-06-10', '2023-06-23', 'Sender Location1', 'Receiver Location3'),
 
-  (26, 26, '2023-04-01', 'Product26', 26, '2023-06-15', '2023-06-27', 'Sender Location25', 'Receiver Location23'),
+  (26, 3, '2023-04-10', 'Product26', 26, '2023-06-15', '2023-06-27', 'Sender Location25', 'Receiver Location23'),
   
 
-  (27, 27, '2023-05-01', 'Product27', 27, '2023-06-11', '2023-06-26', 'Sender Location18', 'Receiver Location27'),
+  (27, 7, '2023-05-14', 'Product27', 27, '2023-06-11', '2023-06-26', 'Sender Location18', 'Receiver Location27'),
 
 
-  (28, 28, '2023-01-01', 'Product28', 28, '2023-06-13', '2023-06-28', 'Sender Location15', 'Receiver Location20'),
+  (28, 6, '2023-01-01', 'Product28', 28, '2023-06-13', '2023-06-28', 'Sender Location15', 'Receiver Location20'),
 
-  (29, 29, '2023-02-01', 'Product29', 29, '2023-06-12', '2023-06-25', 'Sender Location29', 'Receiver Location17'),
+  (29, 10, '2023-02-01', 'Product29', 29, '2023-06-12', '2023-06-25', 'Sender Location29', 'Receiver Location17'),
 
-  (30, 30, '2023-03-01', 'Product30', 30, '2023-06-10', '2023-06-23', 'Sender Location30', 'Receiver Location30'),
-
-
+  (30, 9, '2023-03-01', 'Product30', 30, '2023-06-10', '2023-06-23', 'Sender Location30', 'Receiver Location30'),
 
 
-  (31, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (31, 11, '2023-05-17', 'Product31', 31, '2023-06-10', '2023-06-24', 'Sender Location31', 'Receiver Location34'),
 
-  (32, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (32, 12, '2023-02-28', 'Product32', 32, '2023-06-12', '2023-06-25', 'Sender Location32', 'Receiver Location42'),
 
-  (33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (33, 13, '2023-04-05', 'Product33', 33, '2023-06-14', '2023-06-26', 'Sender Location33', 'Receiver Location37'),
 
-  (34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (34, 14, '2023-03-09', 'Product34', 34, '2023-06-15', '2023-06-28', 'Sender Location35', 'Receiver Location39'),
 
-  (35, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (35, 15, '2023-01-15', 'Product35', 35, '2023-06-16', '2023-06-29', 'Sender Location25', 'Receiver Location45'),
 
-  (36, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (36, 16, '2023-02-22', 'Product36', 36, '2023-06-17', '2023-06-30', 'Sender Location31', 'Receiver Location36'),
 
-  (37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (37, 17, '2023-04-30', 'Product37', 37, '2023-06-18', '2023-07-01', 'Sender Location37', 'Receiver Location33'),
 
-  (38, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (38, 18, '2023-05-07', 'Product38', 38, '2023-06-19', '2023-07-02', 'Sender Location21', 'Receiver Location38'),
 
-  (39, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (39, 19, '2023-03-14', 'Product39', 39, '2023-06-20', '2023-07-03', 'Sender Location39', 'Receiver Location19'),
 
-  (40, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (40, 20, '2023-04-21', 'Product40', 40, '2023-06-21', '2023-07-04', 'Sender Location40', 'Receiver Location30'),
 
-  (41, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (41, 21, '2023-05-28', 'Product41', 41, '2023-06-22', '2023-07-05', 'Sender Location41', 'Receiver Location11'),
 
-  (42, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (42, 22, '2023-03-03', 'Product42', 42, '2023-06-23', '2023-07-06', 'Sender Location40', 'Receiver Location42'),
 
-  (43, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (43, 23, '2023-01-10', 'Product43', 43, '2023-06-24', '2023-07-07', 'Sender Location42', 'Receiver Location13'),
 
-  (44, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (44, 24, '2023-02-17', 'Product44', 44, '2023-06-25', '2023-07-08', 'Sender Location12', 'Receiver Location43:),
 
-  (45, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (45, 45, '2023-02-10', 'Product45', 45, '2023-06-28', '2023-07-11', 'Sender Location30', 'Receiver Location45');
 
-  (46, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (46, 26, '2023-03-02', 'Product46', 46, '2023-06-27', '2023-07-10', 'Sender Location43', 'Receiver Location12'),
 
-  (47, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (47, 27, '2023-01-09', 'Product47', 47, '2023-06-28', '2023-07-11', 'Sender Location34', 'Receiver Location47'),
 
-  (48, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (48, 28, '2023-02-16', 'Product48', 48, '2023-06-29', '2023-07-12', 'Sender Location12', 'Receiver Location48'),
 
-  (49, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+  (49, 29, '2023-04-24', 'Product49', 49, '2023-06-30', '2023-07-13', 'Sender Location49', 'Receiver Location38'),
 
-  (50, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+  (50, 30, '2023-05-31', 'Product50', 50, '2023-07-01', '2023-07-14', 'Sender Location50', 'Receiver Location30');
+
+
+  
+
+
+
+  
