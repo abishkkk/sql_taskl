@@ -1,0 +1,75 @@
+SELECT * FROM abi.`salesdata (3)`;
+SELECT order_id AS order_id
+FROM sales_data;
+
+SELECT order_id AS order_id,
+       MONTH(order_date) AS order_month,
+       CONCAT(YEAR(order_date), '-', LPAD(MONTH(order_date), 2, '0')) AS year_month
+FROM sales_data;
+SELECT CONCAT('cg ', customer_id) AS customer_id
+FROM sales_data
+
+SELECT CONCAT(region, ', ', country, ', ', city, ', ', state) AS location_info
+FROM sales_data;
+
+CREATE TABLE Sales_order_info AS
+SELECT Product_ID, Sub_Category, Product_Name, Sales, Quantity, per_quantity_price, super_type, Discount, Profit, Loss
+FROM sales_purchase_data_updated;
+
+SELECT CONCAT('cg ', customer_id) AS customer_id
+FROM sales_data
+WHERE customer_id BETWEEN 12520 AND 12620;
+
+SELECT 
+    CASE 
+        WHEN Product_ID LIKE 'FUR-BO-%' THEN SUBSTRING(Product_ID, 8)
+        ELSE Product_ID
+    END AS product_id_formatted
+FROM Sales_order_info;
+
+SELECT 
+    Sales, 
+    Quantity, 
+    Sales / Quantity AS per_quantity_price
+FROM Sales_order_info;
+
+SELECT 
+    Sales,
+    CASE
+        WHEN Sales > 1000 THEN 'Super'
+        WHEN Sales > 400 AND Sales <= 1000 THEN 'Average'
+        ELSE 'Low'
+    END AS sales_type
+FROM Sales_order_info;
+
+SELECT 
+    Profit,
+    CASE
+        WHEN Profit < 0 THEN 1
+        ELSE 0
+    END AS cLoss
+FROM Sales_order_info;
+
+SELECT COUNT(DISTINCT order_id) AS distinct_order_ids
+FROM sales_purchase_data_updated;
+
+SELECT COUNT(DISTINCT Product_Name) AS unique_product_names
+FROM Sales_order_info;
+
+SELECT COUNT(DISTINCT Segment) AS distinct_segments
+FROM sales_purchase_data_updated;
+
+SELECT MAX(order_date) AS recent_order_date
+FROM sales_purchase_data_updated;
+
+SELECT *
+FROM sales_purchase_data_updated
+WHERE order_date = (
+    SELECT MAX(order_date)
+    FROM sales_purchase_data_updated
+);
+
+SELECT
+    COUNT(DISTINCT CASE WHEN State = 'Texas' THEN Customer_ID END) AS No_of_cust_texas,
+    COUNT(DISTINCT CASE WHEN State = 'New York' THEN Customer_ID END) AS No_of_cust_New_york
+FROM sales_purchase_data_updated;
