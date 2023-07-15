@@ -10,4 +10,42 @@ FROM employee
 GROUP BY phone_number
 HAVING COUNT(*) > 1;
 
+SELECT ROW_NUMBER() OVER (ORDER BY employee_id) AS row_number, employee_id
+FROM employee;
+
+WITH sorted_employees AS (
+  SELECT *, ROW_NUMBER() OVER (ORDER BY salary) AS row_num
+  FROM employee
+)
+SELECT *
+FROM sorted_employees
+ORDER BY salary;
+
+WITH sorted_employees AS (
+  SELECT *, ROW_NUMBER() OVER (PARTITION BY location ORDER BY salary) AS row_num
+  FROM employee
+)
+SELECT *
+FROM sorted_employees
+ORDER BY location, salary;
+
+WITH ranked_employees AS (
+  SELECT *, ROW_NUMBER() OVER (PARTITION BY location ORDER BY salary DESC) AS rank_num
+  FROM employee
+)
+SELECT *
+FROM ranked_employees
+WHERE rank_num = 2;
+
+WITH ranked_employees AS (
+  SELECT *, ROW_NUMBER() OVER (PARTITION BY location ORDER BY salary) AS rank_num
+  FROM employee
+)
+SELECT *
+FROM ranked_employees
+WHERE rank_num = 1;
+
+
+
+
 
