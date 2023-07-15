@@ -1,0 +1,13 @@
+SELECT location, ROW_NUMBER() OVER (PARTITION BY location ORDER BY employee_id) AS consecutive_number
+FROM employee;
+
+CREATE TABLE employee_updated AS
+SELECT DISTINCT *
+FROM employee;
+
+SELECT phone_number, COUNT(*) AS duplicate_count
+FROM employee
+GROUP BY phone_number
+HAVING COUNT(*) > 1;
+
+
